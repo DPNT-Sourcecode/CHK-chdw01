@@ -1,6 +1,8 @@
 # noinspection RubyUnusedLocalVariable
 class Checkout
-  SKUS = {
+  # SKUS = ['A', 'B', 'C', 'D']
+
+  PRICES = {
     'A' => 50,
     'B' => 30,
     'C' => 20,
@@ -17,6 +19,14 @@ class Checkout
     return 0 if skus.empty?
 
     total = 0
+
+    sku_counts = skus.each_with_object(Hash.new(0)) do |sku, hash|
+      hash[sku] += 1
+    end
+
+    sku_counts.map do |sku, count|
+
+    end.reduce(:+)
 
     a_count = skus.count('A')
     a_promos = a_count / 3
@@ -43,6 +53,7 @@ end
 # | B    | 30    | 2B for 45      |
 # | C    | 20    |                |
 # | D    | 15    |
+
 
 
 
