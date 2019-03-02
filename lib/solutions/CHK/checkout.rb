@@ -20,7 +20,7 @@ class Checkout
 
     total = 0
 
-    sku_counts = skus.each_with_object(Hash.new(0)) do |sku, hash|
+    sku_counts = skus.each_char.each_with_object(Hash.new(0)) do |sku, hash|
       hash[sku] += 1
     end
 
@@ -29,13 +29,13 @@ class Checkout
         a_promos = count / 3
         a_normal = count % 3
 
-        PROMOS['AAA'] * a_promos + SKUS[sku] * a_normal
+        PROMOS['AAA'] * a_promos + PRICES[sku] * a_normal
       elsif sku == 'B'
         b_promos = count / 2
         b_normal = count % 2
-        PROMOS['BB'] * b_promos + SKUS[sku] * b_normal
+        PROMOS['BB'] * b_promos + PRICES[sku] * b_normal
       else
-        SKUS[sku] * count
+        PRICES[sku] * count
       end
 
     end.reduce(:+)
@@ -49,6 +49,7 @@ end
 # | B    | 30    | 2B for 45      |
 # | C    | 20    |                |
 # | D    | 15    |
+
 
 
 
