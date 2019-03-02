@@ -9,9 +9,10 @@ class Checkout
 
   def checkout(skus)
     return -1 unless skus.is_a?(String)
-
+    return 0 if skus.empty?
+    
     skus.each_char.map do |sku|
-      SKUS.fetch(sku, -1)
+      SKUS.fetch(sku)
     end.reduce(:+)
   end
 end
@@ -23,6 +24,3 @@ end
 # | B    | 30    | 2B for 45      |
 # | C    | 20    |                |
 # | D    | 15    |
-
-
-
