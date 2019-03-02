@@ -8,9 +8,12 @@ class Checkout
   }
 
   def checkout(skus)
-    raise 'Not implemented'
-  end
+    return -1 unless skus.is_a?(String)
 
+    skus.each_char.map do |sku|
+      SKUS[sku]
+    end.reduce(:+)
+  end
 end
 
 
@@ -20,4 +23,5 @@ end
 # | B    | 30    | 2B for 45      |
 # | C    | 20    |                |
 # | D    | 15    |
+
 
