@@ -11,7 +11,7 @@ class Checkout
     return -1 unless skus.is_a?(String)
 
     skus.each_char.map do |sku|
-      SKUS[sku]
+      SKUS.fetch(sku, -1)
     end.reduce(:+)
   end
 end
@@ -23,5 +23,6 @@ end
 # | B    | 30    | 2B for 45      |
 # | C    | 20    |                |
 # | D    | 15    |
+
 
 

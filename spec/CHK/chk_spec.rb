@@ -11,6 +11,16 @@ RSpec.describe Checkout do
     expect(checkout.checkout(1)).to eq -1
   end
 
+  it 'string contains non capital chars' do
+    checkout = Checkout.new
+    expect(checkout.checkout('a')).to eq -1
+  end
+
+  it 'string contains non capital chars' do
+    checkout = Checkout.new
+    expect(checkout.checkout('-')).to eq -1
+  end
+
   it 'returns 50 for item A' do
     checkout = Checkout.new
     expect(checkout.checkout('A')).to eq 50
@@ -29,4 +39,5 @@ end
 # | B    | 30    | 2B for 45      |
 # | C    | 20    |                |
 # | D    | 15    |
+
 
