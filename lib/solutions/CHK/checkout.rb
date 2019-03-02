@@ -8,8 +8,8 @@ class Checkout
   }
 
   PROMOS = {
-    'AAA' = 130,
-    'BB' = 45
+    'AAA' => 130,
+    'BB' => 45
   }
 
   def checkout(skus)
@@ -29,8 +29,8 @@ class Checkout
     b_promos = b_count / 2
     b_normal = b_count % 2
 
-    total += PROMOS['BB'] * a_promos
-    total += SKUS['B'] * a_normal
+    total += PROMOS['BB'] * b_promos
+    total += SKUS['B'] * b_normal
 
     total
   end
@@ -43,5 +43,6 @@ end
 # | B    | 30    | 2B for 45      |
 # | C    | 20    |                |
 # | D    | 15    |
+
 
 
