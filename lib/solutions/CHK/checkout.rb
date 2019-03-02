@@ -19,20 +19,20 @@ class Checkout
     total = 0
 
     a_count = skus.count('A')
+    a_promos = a_count / 3
+    a_normal = a_count % 3
+
+    total += PROMOS['AAA'] * a_promos
+    total += SKUS['A'] * a_normal
+
     b_count = skus.count('B')
+    b_promos = b_count / 2
+    b_normal = b_count % 2
 
-    PROMOS.each do |promo, discount|
-      ordered_skus.coun
-      if ordered_skus.include?(promo)
-        total += discount
-        ordered_skus.sub!(promo, '')
-      e
-    end
+    total += PROMOS['BB'] * a_promos
+    total += SKUS['B'] * a_normal
 
-
-    step 1 count all the letters.
-
-    step 2 apply the rule
+    total
   end
 end
 
@@ -43,4 +43,5 @@ end
 # | B    | 30    | 2B for 45      |
 # | C    | 20    |                |
 # | D    | 15    |
+
 
